@@ -9,27 +9,80 @@
 //------------------------------------------------------------------------------
 
 namespace CertsClient.CertServer {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Certificado", Namespace="http://schemas.datacontract.org/2004/07/CertService")]
+    [System.SerializableAttribute()]
+    public partial class Certificado : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] archivoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tipoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] archivo {
+            get {
+                return this.archivoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.archivoField, value) != true)) {
+                    this.archivoField = value;
+                    this.RaisePropertyChanged("archivo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tipo {
+            get {
+                return this.tipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tipoField, value) != true)) {
+                    this.tipoField = value;
+                    this.RaisePropertyChanged("tipo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://services.marsh.com.ar/CertService", ConfigurationName="CertServer.ICertService")]
     public interface ICertService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoMercosur", ReplyAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoMercosurRespo" +
-            "nse")]
-        byte[] GetCertificadoMercosur(string patente, string chasis);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificado", ReplyAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoResponse")]
+        CertsClient.CertServer.Certificado[] GetCertificado(string[] tipos, string patente, string chasis);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoMercosur", ReplyAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoMercosurRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<byte[]> GetCertificadoMercosurAsync(string patente, string chasis);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoLocal", ReplyAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoLocalResponse" +
-            "")]
-        byte[] GetCertificadoLocal(string patente, string chasis);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoLocal", ReplyAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoLocalResponse" +
-            "")]
-        System.Threading.Tasks.Task<byte[]> GetCertificadoLocalAsync(string patente, string chasis);
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificado", ReplyAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoResponse")]
+        System.Threading.Tasks.Task<CertsClient.CertServer.Certificado[]> GetCertificadoAsync(string[] tipos, string patente, string chasis);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -59,20 +112,12 @@ namespace CertsClient.CertServer {
                 base(binding, remoteAddress) {
         }
         
-        public byte[] GetCertificadoMercosur(string patente, string chasis) {
-            return base.Channel.GetCertificadoMercosur(patente, chasis);
+        public CertsClient.CertServer.Certificado[] GetCertificado(string[] tipos, string patente, string chasis) {
+            return base.Channel.GetCertificado(tipos, patente, chasis);
         }
         
-        public System.Threading.Tasks.Task<byte[]> GetCertificadoMercosurAsync(string patente, string chasis) {
-            return base.Channel.GetCertificadoMercosurAsync(patente, chasis);
-        }
-        
-        public byte[] GetCertificadoLocal(string patente, string chasis) {
-            return base.Channel.GetCertificadoLocal(patente, chasis);
-        }
-        
-        public System.Threading.Tasks.Task<byte[]> GetCertificadoLocalAsync(string patente, string chasis) {
-            return base.Channel.GetCertificadoLocalAsync(patente, chasis);
+        public System.Threading.Tasks.Task<CertsClient.CertServer.Certificado[]> GetCertificadoAsync(string[] tipos, string patente, string chasis) {
+            return base.Channel.GetCertificadoAsync(tipos, patente, chasis);
         }
     }
 }

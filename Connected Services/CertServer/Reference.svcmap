@@ -22,11 +22,13 @@
     <MetadataSource Address="https://localhost/CertService/CertService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CertService.wsdl" MetadataType="Wsdl" ID="e843d2c5-d6c7-4b18-8b18-54eb5946ea16" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CertService.xsd" MetadataType="Schema" ID="a1c579a8-cc90-4eb7-8f3d-fb21b954429e" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CertService1.xsd" MetadataType="Schema" ID="bee2e495-9632-41d1-b8ce-dda2b3554fa7" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?xsd=xsd2" />
     <MetadataFile FileName="CertService31.xsd" MetadataType="Schema" ID="bbc8bd24-6f1e-426c-a254-9d4a9550a66d" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?xsd=xsd1" />
-    <MetadataFile FileName="CertService1.disco" MetadataType="Disco" ID="dc4411eb-c78f-45a6-9ceb-89b0aa7111fe" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?disco" />
-    <MetadataFile FileName="CertService1.wsdl" MetadataType="Wsdl" ID="d972adfe-640f-4d43-8cc4-4b40ae28aa6b" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?wsdl" />
     <MetadataFile FileName="CertService3.xsd" MetadataType="Schema" ID="414440dd-fde7-4b47-a8b8-012bc5747e26" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CertService1.wsdl" MetadataType="Wsdl" ID="d972adfe-640f-4d43-8cc4-4b40ae28aa6b" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?wsdl" />
+    <MetadataFile FileName="CertService.wsdl" MetadataType="Wsdl" ID="e843d2c5-d6c7-4b18-8b18-54eb5946ea16" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CertService1.disco" MetadataType="Disco" ID="dc4411eb-c78f-45a6-9ceb-89b0aa7111fe" SourceId="1" SourceUrl="https://localhost/CertService/CertService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

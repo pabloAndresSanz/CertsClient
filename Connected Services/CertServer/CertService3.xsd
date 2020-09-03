@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://services.marsh.com.ar/CertService" elementFormDefault="qualified" targetNamespace="http://services.marsh.com.ar/CertService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="GetCertificadoMercosur">
+  <xs:import schemaLocation="https://localhost/CertService/CertService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://localhost/CertService/CertService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CertService" />
+  <xs:element name="GetCertificado">
     <xs:complexType>
       <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tipos" nillable="true" type="q1:ArrayOfstring" />
         <xs:element minOccurs="0" name="patente" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="chasis" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCertificadoMercosurResponse">
+  <xs:element name="GetCertificadoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetCertificadoMercosurResult" nillable="true" type="xs:base64Binary" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCertificadoLocal">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="patente" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="chasis" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCertificadoLocalResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetCertificadoLocalResult" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CertService" minOccurs="0" name="GetCertificadoResult" nillable="true" type="q2:ArrayOfCertificado" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

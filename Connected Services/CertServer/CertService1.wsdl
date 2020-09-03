@@ -43,17 +43,8 @@
   <wsdl:binding name="BasicHttpsBinding_ICertService" type="i0:ICertService">
     <wsp:PolicyReference URI="#BasicHttpsBinding_ICertService_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetCertificadoMercosur">
-      <soap:operation soapAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoMercosur" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificadoLocal">
-      <soap:operation soapAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoLocal" style="document" />
+    <wsdl:operation name="GetCertificado">
+      <soap:operation soapAction="http://services.marsh.com.ar/CertService/ICertService/GetCertificado" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

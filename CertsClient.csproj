@@ -58,8 +58,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\CertServer\CertsClient.CertServer.Certificado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CertServer\CertService.wsdl" />
+    <None Include="Connected Services\CertServer\CertService.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\CertServer\CertService1.wsdl" />
+    <None Include="Connected Services\CertServer\CertService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\CertServer\CertService3.xsd">
       <SubType>Designer</SubType>
     </None>

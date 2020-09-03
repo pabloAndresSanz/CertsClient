@@ -4,28 +4,20 @@
     <xsd:schema targetNamespace="http://services.marsh.com.ar/CertService/Imports">
       <xsd:import schemaLocation="https://localhost/CertService/CertService.svc?xsd=xsd0" namespace="http://services.marsh.com.ar/CertService" />
       <xsd:import schemaLocation="https://localhost/CertService/CertService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://localhost/CertService/CertService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://localhost/CertService/CertService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CertService" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ICertService_GetCertificadoMercosur_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificadoMercosur" />
+  <wsdl:message name="ICertService_GetCertificado_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificado" />
   </wsdl:message>
-  <wsdl:message name="ICertService_GetCertificadoMercosur_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificadoMercosurResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICertService_GetCertificadoLocal_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificadoLocal" />
-  </wsdl:message>
-  <wsdl:message name="ICertService_GetCertificadoLocal_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCertificadoLocalResponse" />
+  <wsdl:message name="ICertService_GetCertificado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificadoResponse" />
   </wsdl:message>
   <wsdl:portType name="ICertService">
-    <wsdl:operation name="GetCertificadoMercosur">
-      <wsdl:input wsaw:Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoMercosur" message="tns:ICertService_GetCertificadoMercosur_InputMessage" />
-      <wsdl:output wsaw:Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoMercosurResponse" message="tns:ICertService_GetCertificadoMercosur_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCertificadoLocal">
-      <wsdl:input wsaw:Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoLocal" message="tns:ICertService_GetCertificadoLocal_InputMessage" />
-      <wsdl:output wsaw:Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoLocalResponse" message="tns:ICertService_GetCertificadoLocal_OutputMessage" />
+    <wsdl:operation name="GetCertificado">
+      <wsdl:input wsaw:Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificado" message="tns:ICertService_GetCertificado_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.marsh.com.ar/CertService/ICertService/GetCertificadoResponse" message="tns:ICertService_GetCertificado_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

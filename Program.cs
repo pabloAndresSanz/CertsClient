@@ -19,12 +19,13 @@ namespace CertsClient
             {
                 if (args.Length < 5)
                 {
-                    Console.WriteLine("Uso: CertsClient tipo patente chasis usuario password [ssl]");
-                    Console.WriteLine("Tipo: MERCO o LOCAL");
+                    Console.WriteLine("Uso: CertsClient tipos patente chasis usuario password [ssl]");
+                    Console.WriteLine("Tipos: MERCOSUR,LOCAL");
                     Console.WriteLine("ssl: para evitar ell chequedo de certificado");
                     Console.WriteLine("Ejemplo: CertsClient MERCO NTR686 \"\" mercantil marsh");
                     return;
                 }
+                /* esta parte es hasta que MARSH actualice su certificado */
                 if (args.Length > 5)
                 {
                     ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, error) =>
@@ -32,7 +33,7 @@ namespace CertsClient
                        return true;
                    };
                 }
-                var tipo = args[0];
+                var tipos = args[0];
                 var patente = args[1];
                 var chasis = args[2];
                 var userName = args[3];
@@ -40,27 +41,27 @@ namespace CertsClient
                 var client = new CertServiceClient();
                 client.ClientCredentials.UserName.UserName = userName;
                 client.ClientCredentials.UserName.Password = password;
-                var writer = new BinaryWriter(new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "certificado.pdf"), FileMode.Create));
-                if (tipo.Equals("MERCO"))
+                
+                Certificado[] certificados = client.GetCertificado(tipos.Split(','), patente, chasis);
+                foreach(Certificado certificado in certificados)
                 {
-                    writer.Write(client.GetCertificadoMercosur(patente, chasis));
-                }
-                else
-                {
-                    writer.Write(client.GetCertificadoLocal(patente, chasis));
-                }
-                writer.Close();
+                    var writer = new BinaryWriter(new FileStream(Path.Combine(Directory.GetCurrentDirectory(), $"{certificado.tipo}.pdf"), FileMode.Create));
+                    writer.Write(certificado.archivo);
+                    writer.Close();
+                    Console.WriteLine($"Todo bien. Archivo en {Path.Combine(Directory.GetCurrentDirectory(), $"{certificado.tipo}.pdf")}");
+                }                
                 client.Close();
-                Console.WriteLine($"Todo bien. Archivo en {Path.Combine(Directory.GetCurrentDirectory(), "certificado.pdf")}  <ENTER> para salir");
+                
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Todo mal. {e.Message} <ENTER> para salir");
+                Console.WriteLine($"Todo mal. {e.Message}");
             }
             finally
             {
 
             }
+            Console.WriteLine("<ENTER> para salir");
             Console.ReadLine();
         }
     }
